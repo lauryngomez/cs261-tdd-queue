@@ -80,62 +80,62 @@ class TestQueue(unittest.TestCase):
         s.enqueue('fee')
         self.assertEqual('fee', s.dequeue())
 
-    # def test_dequeue_one_internal(self):
-    #     """
-    #     Dequeuing from a single-element queue removes it from the internal sllist.
-    #     """
-    #     s = Queue()
-    #     s.enqueue('fee')
-    #     self.assertEqual(1, s.data.size)
-    #     _ = s.dequeue()
-    #     self.assertEqual(0, s.data.size)
+    def test_dequeue_one_internal(self):
+        """
+        Dequeuing from a single-element queue removes it from the internal sllist.
+        """
+        s = Queue()
+        s.enqueue('fee')
+        self.assertEqual(1, s.data.size)
+        _ = s.dequeue()
+        self.assertEqual(0, s.data.size)
 
-    # def test_dequeue_two(self):
-    #     """
-    #     Dequeuing from a two-element queue returns the first enqueued value.
-    #     """
-    #     s = Queue()
-    #     s.enqueue('fee')
-    #     s.enqueue('fi')
-    #     self.assertEqual('fee', s.dequeue())
+    def test_dequeue_two(self):
+        """
+        Dequeuing from a two-element queue returns the first enqueued value.
+        """
+        s = Queue()
+        s.enqueue('fee')
+        s.enqueue('fi')
+        self.assertEqual('fee', s.dequeue())
 
-    # def test_dequeue_two_internal(self):
-    #     """
-    #     Dequeuing from a two-element queue removes the first enqueued value from
-    #     the sllist.
-    #     """
-    #     s = Queue()
-    #     s.enqueue('fee')
-    #     s.enqueue('fi')
-    #     _ = s.dequeue()
-    #     self.assertEqual('fi', s.data.first.value)
+    def test_dequeue_two_internal(self):
+        """
+        Dequeuing from a two-element queue removes the first enqueued value from
+        the sllist.
+        """
+        s = Queue()
+        s.enqueue('fee')
+        s.enqueue('fi')
+        _ = s.dequeue()
+        self.assertEqual('fi', s.data.first.value)
 
-    # def test_dequeue_three(self):
-    #     """
-    #     Dequeuing from a three-element queue returns each enqueued value in FIFO
-    #     order.
-    #     """
-    #     s = Queue()
-    #     s.enqueue('fee')
-    #     s.enqueue('fi')
-    #     s.enqueue('fo')
-    #     self.assertEqual('fee', s.dequeue())
-    #     self.assertEqual('fi', s.dequeue())
-    #     self.assertEqual('fo', s.dequeue())
+    def test_dequeue_three(self):
+        """
+        Dequeuing from a three-element queue returns each enqueued value in FIFO
+        order.
+        """
+        s = Queue()
+        s.enqueue('fee')
+        s.enqueue('fi')
+        s.enqueue('fo')
+        self.assertEqual('fee', s.dequeue())
+        self.assertEqual('fi', s.dequeue())
+        self.assertEqual('fo', s.dequeue())
 
-    # def test_dequeue_three_internal(self):
-    #     """
-    #     Dequeuing from a three-element queue removes each dequeued value from
-    #     the internal sllist, in FIFO order.
-    #     """
-    #     s = Queue()
-    #     s.enqueue('fee')
-    #     s.enqueue('fi')
-    #     s.enqueue('fo')
-    #     _ = s.dequeue()
-    #     self.assertEqual('fi', s.data.first.value)
-    #     _ = s.dequeue()
-    #     self.assertEqual('fo', s.data.first.value)
+    def test_dequeue_three_internal(self):
+        """
+        Dequeuing from a three-element queue removes each dequeued value from
+        the internal sllist, in FIFO order.
+        """
+        s = Queue()
+        s.enqueue('fee')
+        s.enqueue('fi')
+        s.enqueue('fo')
+        _ = s.dequeue()
+        self.assertEqual('fi', s.data.first.value)
+        _ = s.dequeue()
+        self.assertEqual('fo', s.data.first.value)
 
     """
     Emptiness
