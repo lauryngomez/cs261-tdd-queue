@@ -49,16 +49,16 @@ class TestQueue(unittest.TestCase):
         s.enqueue('fee')
         self.assertEqual('fee', s.data.first.value)
 
-    # def test_enqueue_two_internal(self):
-    #     """
-    #     Enqueueing two values results in the first enqueued value being the first
-    #     one in the list, and the second value being the last one in the list.
-    #     """
-    #     s = Queue()
-    #     s.enqueue('fee')
-    #     s.enqueue('fi')
-    #     self.assertEqual('fee', s.data.first.value)
-    #     self.assertEqual('fi', s.data.last.value)
+    def test_enqueue_two_internal(self):
+        """
+        Enqueueing two values results in the first enqueued value being the first
+        one in the list, and the second value being the last one in the list.
+        """
+        s = Queue()
+        s.enqueue('fee')
+        s.enqueue('fi')
+        self.assertEqual('fee', s.data.first.value)
+        self.assertEqual('fi', s.data.last.value)
 
     # def test_enqueue_three_internal(self):
     #     """
