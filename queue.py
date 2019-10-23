@@ -13,3 +13,7 @@ class Queue:
 
     def dequeue(self):
         return self.data.popleft()
+
+    def is_empty(self):
+        if self.data.size == 0:
+            return True
